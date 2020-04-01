@@ -1,3 +1,0 @@
-#Tue Mar 31 19:04:06 EDT 2020
-getViews=\ Gets the read-only list of all {@link View}s.\n
-getPrimaryView=\ Returns the primary {@link View} that renders the top-page of Hudson.\n

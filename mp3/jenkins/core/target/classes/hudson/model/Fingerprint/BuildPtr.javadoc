@@ -1,3 +1,0 @@
-#Tue Mar 31 19:04:06 EDT 2020
-getNumber=\ Gets the project build number.\n <p>\n Such {@link Run} could be since then\n discarded.\n
-getName=\ Gets {@link Job\#getFullName() the full name of the job}.\n <p>\n Such job could be since then removed,\n so there might not be a corresponding\n {@link Job}.\n

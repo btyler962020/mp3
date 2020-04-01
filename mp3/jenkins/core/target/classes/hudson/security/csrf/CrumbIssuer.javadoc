@@ -1,3 +1,0 @@
-#Tue Mar 31 19:04:06 EDT 2020
-getCrumb=\ Get a crumb value based on user specific information in the current request.\n Intended for use only by the remote API.\n
-getCrumbRequestField=\ Get the name of the request parameter the crumb will be stored in. Exposed\n here for the remote API.\n
