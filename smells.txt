@@ -1,0 +1,32 @@
+Q1: The type of code smell is Duplicated Code. We can use the refactoring method of "Replace Inline Code with Function Call" which is found in Eclipse's Extract Method refactoring.
+
+Q3: The type of code smell is Duplicated Code. The same method is called in every method of the Nodes class. We can use the "Move Method" refactoring to remedy this problem.
+
+Q4: We can encapsulate this code into a for loop that will execute for times and increment i with
+each execution. The loop looks like:
+	StringBuilder hex = ne StringBuilder(4);
+	boolean myBreak = false;
+	for (int j =0; j < 4;j++)
+	{
+		i++;
+		if(i < chars.length)
+		{
+			hex.append(chars[i]);
+		}
+		else
+		{
+			myBreak = true;
+			break; //This breaks the for loop
+		}
+	
+
+
+	}
+	if(myBreak == true)
+	{
+		break; //This breaks the main loop
+	}
+
+
+Q6: We found an instance of 8 duplicate lines in the RunParameterDefinitionTest. We chose to use the extract method solution to remove the 
+unnecesary duplication of the code.
