@@ -32,7 +32,9 @@ import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import hudson.util.LogTaskListener;
 
+import java.io.IOException;
 import java.util.Collections;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -81,8 +83,7 @@ public class RunParameterDefinitionTest {
     @Test
     public void testNULLFilter() throws Exception {
 
-        FreeStyleProject project = j.createFreeStyleProject("project");
-        FreeStyleBuild successfulBuild = project.scheduleBuild2(0).get();
+        FreeStyleProject project = extracted();
 
         project.getPublishersList().replaceBy(Collections.singleton(new ResultPublisher(Result.UNSTABLE)));
         FreeStyleBuild unstableBuild = project.scheduleBuild2(0).get();
@@ -109,12 +110,17 @@ public class RunParameterDefinitionTest {
                      build.getEnvironment(new LogTaskListener(LOGGER, Level.INFO)).get("RUN_NUMBER"));
     }
 
+	FreeStyleProject extracted() throws IOException, InterruptedException, ExecutionException {
+		FreeStyleProject project = j.createFreeStyleProject("project");
+        FreeStyleBuild successfulBuild = project.scheduleBuild2(0).get();
+		return project;
+	}
+
     
     @Test
     public void testALLFilter() throws Exception {
 
-        FreeStyleProject project = j.createFreeStyleProject("project");
-        FreeStyleBuild successfulBuild = project.scheduleBuild2(0).get();
+        FreeStyleProject project = extracted();
 
         project.getPublishersList().replaceBy(Collections.singleton(new ResultPublisher(Result.UNSTABLE)));
         FreeStyleBuild unstableBuild = project.scheduleBuild2(0).get();
@@ -144,8 +150,7 @@ public class RunParameterDefinitionTest {
     @Test
     public void testCOMPLETEDFilter() throws Exception {
 
-        FreeStyleProject project = j.createFreeStyleProject("project");
-        FreeStyleBuild successfulBuild = project.scheduleBuild2(0).get();
+        FreeStyleProject project = extracted();
 
         project.getPublishersList().replaceBy(Collections.singleton(new ResultPublisher(Result.UNSTABLE)));
         FreeStyleBuild unstableBuild = project.scheduleBuild2(0).get();
@@ -175,8 +180,7 @@ public class RunParameterDefinitionTest {
     @Test
     public void testSUCCESSFULFilter() throws Exception {
 
-        FreeStyleProject project = j.createFreeStyleProject("project");
-        FreeStyleBuild successfulBuild = project.scheduleBuild2(0).get();
+        FreeStyleProject project = extracted();
 
         project.getPublishersList().replaceBy(Collections.singleton(new ResultPublisher(Result.UNSTABLE)));
         FreeStyleBuild unstableBuild = project.scheduleBuild2(0).get();
