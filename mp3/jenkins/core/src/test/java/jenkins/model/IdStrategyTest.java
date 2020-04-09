@@ -8,14 +8,14 @@ public class IdStrategyTest {
 
 	@Test
 	public void testIdFromFilenameStandardCharacters() {
-        CaseSensitive a = new CaseSensitive();
-		assertEquals("filename", a.testIdFromFilename("filename"));
-    }
+        	CaseSensitive a = new CaseSensitive();
+			assertEquals("filename", a.idFromFilename("filename"));
+    	}
     
-    @Test
+    	@Test
 	public void testIdFromFilenameStringOtherCharacters() {
-        CaseSensitive a = new CaseSensitive();
-		assertEquals("_filename", a.testIdFromFilename("_filename"));
+        	CaseSensitive a = new CaseSensitive();
+			assertEquals("_filename", a.idFromFilename("_filename"));
 	}
 
 }
