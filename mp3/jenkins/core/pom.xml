@@ -578,7 +578,7 @@ THE SOFTWARE.
     <dependency>
         <groupId>org.mindrot</groupId>
         <artifactId>jbcrypt</artifactId>
-        <version>0.3m</version>
+        <version>0.4</version>
     </dependency>
 
     <!-- offline profiler API to put in the classpath if we need it -->
